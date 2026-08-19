@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4b2d27">
+  <title>The Brew Station — Menu & Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <img src="assets/logo.jpg" alt="The Brew Station logo">
+    <div><strong>The Brew Station</strong><span>Cafe • Scan • Order • Enjoy</span></div>
+  </div>
+  <button class="cart-button" onclick="openCart()">Cart <span id="cartCount">0</span></button>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">WELCOME TO</p>
+      <h1>The Brew Station</h1>
+      <p>Fresh waffles, coffee, shakes, frappes & coolers. Order from your table.</p>
+      <div class="table-pill" id="tablePill">Table —</div>
+    </div>
+  </section>
+
+  <nav id="categories" class="category-nav"></nav>
+  <section id="menu"></section>
+</main>
+
+<div id="cartDrawer" class="drawer hidden">
+  <div class="drawer-card">
+    <div class="drawer-head"><h2>Your Order</h2><button onclick="closeCart()">×</button></div>
+    <div id="cartItems"></div>
+    <div class="total-row"><span>Total</span><strong id="cartTotal">₹0</strong></div>
+
+    <label class="field">Name
+      <input id="customerName" placeholder="Your name">
+    </label>
+    <label class="field">Special instructions
+      <textarea id="notes" placeholder="Less sugar, no ice, etc."></textarea>
+    </label>
+
+    <div class="payment-box">
+      <div class="payment-title">Payment</div>
+      <label><input type="radio" name="payment" value="UPI" checked> Pay online (UPI)</label>
+      <label><input type="radio" name="payment" value="CASH"> Pay at counter (cash)</label>
+    </div>
+
+    <button class="primary" onclick="placeOrder()">Place Order</button>
+    <p class="small">Online payment uses your configured UPI ID. The first version records the order; payment verification can be added later with a payment gateway.</p>
+  </div>
+</div>
+
+<div id="success" class="modal hidden">
+  <div class="modal-card">
+    <div class="success-icon">✓</div>
+    <h2>Order received</h2>
+    <p id="successText"></p>
+    <div id="upiBox"></div>
+    <button class="primary" onclick="closeSuccess()">Done</button>
+  </div>
+</div>
+
+<footer>Prices inclusive of all taxes • The Brew Station</footer>
+<script src="app.js"></script>
+</body>
+</html>
